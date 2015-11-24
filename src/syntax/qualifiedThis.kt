@@ -2,7 +2,8 @@ package syntax.qualifiedThis
 
 class Outer { // implicit label @Outer
     inner class Inner { // implicit label @Inner
-        fun Int.foo() { // implicit label @foo
+        fun Int.foo() {
+            // implicit label @foo
             use(this@Outer, this@Inner, this@foo)
             this == this@foo
 
@@ -18,10 +19,22 @@ class Outer { // implicit label @Outer
     }
 }
 
-interface A { fun a() {} }
-interface B { fun b() {} }
-interface C { fun c() {} }
-fun B.foo(f: C.()->Unit) = f
+interface A {
+    fun a() {
+    }
+}
+
+interface B {
+    fun b() {
+    }
+}
+
+interface C {
+    fun c() {
+    }
+}
+
+fun B.foo(f: C.() -> Unit) = f
 
 fun labelsForExtensionFunctionLiterals(a: A, b: B) {
     with (a) A@{

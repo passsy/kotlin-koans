@@ -1,16 +1,17 @@
 package i_introduction._6_Data_Classes
 
-import util.*
+import util.TODO
+import util.doc7
 
 fun todoTask7(): Nothing = TODO(
-    """
+        """
         Convert 'JavaCode7.Person' class to Kotlin.
         Then add an annotation `data` to the resulting class.
         This annotation means the compiler will generate a bunch of useful methods in this class: `equals`/`hashCode`, `toString` and some others.
         The `task7` function should return a list of persons.
     """,
-    documentation = doc7(),
-    references = { JavaCode7.Person("Alice", 29) }
+        documentation = doc7(),
+        references = { JavaCode7.Person("Alice", 29) }
 )
 
 class Person

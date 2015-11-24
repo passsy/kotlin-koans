@@ -5,7 +5,7 @@ package syntax.javaCollections
 
 fun useReadonlySet(set: Set<Int>) {
     // doesn't compile:
-//    set.add(1)
+    //    set.add(1)
 }
 
 fun useMutableSet(set: MutableSet<Int>) {

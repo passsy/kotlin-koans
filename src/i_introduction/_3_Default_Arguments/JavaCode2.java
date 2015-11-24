@@ -3,6 +3,7 @@ package i_introduction._3_Default_Arguments;
 import util.JavaCode;
 
 public class JavaCode2 extends JavaCode {
+
     private int defaultNumber = 42;
 
     public String foo(String name, int number, boolean toUpperCase) {
