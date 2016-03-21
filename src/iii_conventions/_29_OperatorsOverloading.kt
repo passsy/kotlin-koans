@@ -1,7 +1,7 @@
 package iii_conventions
 
-import util.TODO
 import iii_conventions.TimeInterval.*
+import util.TODO
 
 fun todoTask29(): Nothing = TODO(
         """
@@ -20,12 +20,44 @@ fun todoTask29(): Nothing = TODO(
         })
 
 fun task29_1(today: MyDate): MyDate {
-    todoTask29()
-    //    return today + YEAR + WEEK
+    return today + YEAR + WEEK
 }
 
 fun task29_2(today: MyDate): MyDate {
-    todoTask29()
-    //    return today + YEAR * 2 + WEEK * 3 + DAY * 5
+    return today + YEAR * 2 + WEEK * 3 + DAY * 5
+}
+
+class MultipleTimeInterval(val interval: TimeInterval, var count: Int)
+
+operator fun TimeInterval.times(i: Int): MultipleTimeInterval {
+    return MultipleTimeInterval(this, i);
+}
+
+operator fun MyDate.plus(interval: TimeInterval): MyDate {
+    when (interval) {
+        YEAR -> year += 1
+        WEEK -> dayOfMonth += 7
+        DAY -> dayOfMonth += 1
+    }
+
+    // fake day to months
+    if (dayOfMonth >= 31) {
+        month += dayOfMonth / 31
+        dayOfMonth %= 31;
+    }
+
+    if (dayOfMonth >= 12) {
+        year += month / 12
+        month %= 12;
+    }
+
+    return this
+}
+
+operator fun MyDate.plus(multipleInterval: MultipleTimeInterval): MyDate {
+    for (i in 0..multipleInterval.count - 1) {
+        plus(multipleInterval.interval)
+    }
+    return this
 }
 
