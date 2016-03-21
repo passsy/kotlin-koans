@@ -1,7 +1,7 @@
 package i_introduction._5_String_Templates
 
 import util.TODO
-import util.doc4
+import util.doc5
 
 fun example1(a: Any, b: Any) =
         "This is some text in which variables ($a, $b) appear."
@@ -25,14 +25,14 @@ fun example() = "13.06.1992".matches(getPattern().toRegex()) //true
 
 val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 
-fun todoTask4(): Nothing = TODO(
+fun todoTask5(): Nothing = TODO(
         """
-        Task 4.
-        Copy the body of 'getPattern()' to the 'task4()' function
+        Task 5.
+        Copy the body of 'getPattern()' to the 'task5()' function
         and rewrite it in such a way that it matches '13 JUN 1992'.
         Use the 'month' variable.
     """,
-        documentation = doc4(),
+    documentation = doc5(),
         references = { getPattern(); month })
 
-fun task4(): String = """\d{2} $month \d{4}"""
+fun task5(): String = """\d{2} $month \d{4}"""
